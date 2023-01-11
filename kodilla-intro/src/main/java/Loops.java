@@ -18,9 +18,13 @@ public class Loops {
         }
 
 
+        System.out.println(sumNumbers(new int[] {2,4,5}));
+
+        int[] myNum = {10, 20, 30, 40};
+        System.out.println("sum result: " + sumNumbers(myNum));
     }
 
-    public int sumNumbers(int[] numbers) {
+    public static int sumNumbers(int[] numbers) {
         int result = 0;
         for (int i = 0; i < numbers.length; i++) {
             result = result + numbers[i];
