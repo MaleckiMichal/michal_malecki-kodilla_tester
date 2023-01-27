@@ -4,6 +4,10 @@ public class Honda implements Car {
 
     private int speed;
 
+    public Honda(int speed) {
+        this.speed = speed;
+    }
+
     @Override
     public int getSpeed() {
         return speed;

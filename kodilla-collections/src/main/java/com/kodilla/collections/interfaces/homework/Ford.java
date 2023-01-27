@@ -9,6 +9,10 @@ public class Ford implements Car {
         return speed;
     }
 
+    public Ford(int speed) {
+        this.speed = speed;
+    }
+
     @Override
     public void increaseSpeed() {
         speed = speed + 40;
