@@ -7,7 +7,7 @@ public class Application {
         showStudentTeacherPairs();
     }
 
-
+                              // method below is just to show pair in console
     public static void showStudentTeacherPairs() {
         List<Student> studentList = StudentRepository.getStudentList();
         for (Student student : studentList) {
@@ -30,17 +30,4 @@ public class Application {
         }
         return studentsTeacher;
     }
-
-//    public static void showStudentTeacherPairs() {
-//        List<Student> studentList = StudentRepository.getStudentList();
-////        List<Student> studentTeacherPair = new ArrayList<>();
-//        for (Student student : studentList) {
-//            Optional<Student> optionalStudent = Optional.ofNullable(student);
-//            Teacher teacher =
-//                    optionalStudent.orElse(new Student("",new Teacher("<undefined>"))).getTeacher();
-////            studentTeacherPair.add(new Student(student.getName(), teacher));
-////            System.out.println(studentTeacherPair);
-//            System.out.println("student: " + student.getName() + " teacher: " + student.getTeacher().getName());
-//        }
-//    }
 }
