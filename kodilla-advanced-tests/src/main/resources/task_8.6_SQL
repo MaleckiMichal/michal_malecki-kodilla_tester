@@ -1,0 +1,13 @@
+INSERT INTO POSTS (USER_ID, BODY)
+VALUES (5, "Post not related to topic. Deleting");
+
+UPDATE POSTS
+SET BODY = "Post related to other topic. Moving"
+WHERE USER_ID = 5;
+
+SELECT MAX(ID) FROM POSTS;
+
+DELETE FROM POSTS
+WHERE ID = 10;
+
+COMMIT;

@@ -1,0 +1,79 @@
+CREATE TABLE ISSUESLISTS
+(
+	ID		SERIAL PRIMARY KEY,
+    	NAME		VARCHAR(200)
+);
+
+CREATE TABLE ISSUES
+(
+	ID 					SERIAL PRIMARY KEY,
+    	ISSUESLISTS_ID			BIGINT UNSIGNED NOT NULL,
+    	SUMMARY				CHAR CHARSET utf8mb4,
+    	DESCRIPTION 			VARCHAR(2048),
+    	USER_ID_ASSIGNEDTO		BIGINT UNSIGNED NOT NULL,
+    	FOREIGN KEY (ISSUESLISTS_ID) REFERENCES issueslists(ID),
+    	FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES users(ID)
+);
+
+ALTER TABLE issues
+MODIFY COLUMN SUMMARY VARCHAR(250);
+
+SELECT * FROM issueslists;
+
+INSERT INTO issueslists (NAME)
+VALUE("To do");
+
+INSERT INTO issueslists (NAME)
+VALUE("In progress");
+
+INSERT INTO issueslists (NAME)
+VALUE("Done");
+
+COMMIT;
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (1, "Urgent", "Car repair", 3);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (1, "Next week", "To buy standartd parts for to replenish stocks", 3);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (1, "Tommorow morning. Urgent!", "Buy car insurance", 4);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (1, "Next month", "Visit painting shop - new car body colours to be discussed", 1);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (1, "Urgent", "Sent catalogues to clients", 6);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (2, "Planned finish on Monday", "Design of new body kit", 5);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (2, "Planned finish on Tuestad next week", "Design of spoilers to Subaru Impreza", 5);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (2, "Planned finish on Wednesday", "Design of buttons on stering wheel", 5);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (2, "Planned finish on Friday", "Send reminder to stakeholders (bumpers delivery)", 6);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (2, "Planned finish next month", "Production set of spoilers for Subaru Impreza", 4);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (3, "Done 25.05.2015", "Design of mirrors", 5);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (3, "Done 26.05.2015", "Design of doors", 5);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (3, "Done 15.05.2015", "Buy car insurance for 2016", 4);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (3, "Done 28.05.2015", "Send apologises for delayed delivery", 6);
+
+INSERT INTO issues (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES (3, "Done 28.05.2015", "Send summary of last month deliveries", 6);
+
+COMMIT;
